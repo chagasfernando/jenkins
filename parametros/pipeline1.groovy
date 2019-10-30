@@ -18,14 +18,12 @@ if (params.Continuar != 'Sim') {
                     echo 'Iniciando ' + nomeEstagio
                     writeFile file:nomeEstagio + '.txt', text:nomeEstagio, encoding:'UTF-8'
                     parallel (
-                        stage(nomeEstagio) {
-                            (nomeEstagio + '.1'): {
-                                writeFile file:nomeEstagio + '.1.txt', text:nomeEstagio + '.1', encoding:'UTF-8'
-                            }, (nomeEstagio + '.2'): {
-                                writeFile file:nomeEstagio + '.2.txt', text:nomeEstagio + '.2', encoding:'UTF-8'
-                            }, (nomeEstagio + '.3'): {
-                                writeFile file:nomeEstagio + '.3.txt', text:nomeEstagio + '.3', encoding:'UTF-8'
-                            }
+                        (nomeEstagio + '.1'): {
+                            writeFile file:nomeEstagio + '.1.txt', text:nomeEstagio + '.1', encoding:'UTF-8'
+                        }, (nomeEstagio + '.2'): {
+                            writeFile file:nomeEstagio + '.2.txt', text:nomeEstagio + '.2', encoding:'UTF-8'
+                        }, (nomeEstagio + '.3'): {
+                            writeFile file:nomeEstagio + '.3.txt', text:nomeEstagio + '.3', encoding:'UTF-8'
                         }
                     )
                     echo nomeEstagio + ' Concluido'
